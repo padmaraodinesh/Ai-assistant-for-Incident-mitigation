@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Incident Response</title>
+    <style>
+      /* Define some styles for the page */
+      body {
+        background-color: black;
+        font-family: Arial, sans-serif;
+        color: white;
+      }
+
+      h1 {
+        color: #2d2d2d;
+        text-align: center;
+      }
+
+      table {
+        border-collapse: collapse;
+        margin: 0 auto;
+      }
+
+      th {
+        background-color: #4CAF50;
+        color: white;
+        text-align: left;
+        padding: 8px;
+      }
+
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      .button {
+         background-color: red;
+  	 border: none;
+  	 color: white;
+  	 padding: 10px 20px;
+  	 text-align: center;
+  	 text-decoration: none;
+  	 display: inline-block;
+	 font-size: 16px;
+  	 margin: 4px 2px;
+  	 cursor: pointer;
+      }
+
+      .button:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Incident Response</h1>
+    <table>
+      <tr>
+        <th>Incident ID</th>
+        <th>Description</th>
+        <th>Mitigation</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Unauthorized access to system</td>
+        <td>Reset passwords, update access controls, review logs</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Malware infection</td>
+        <td>Isolate infected machines, scan and clean up malware, patch vulnerabilities</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Denial of Service attack</td>
+        <td>Block attack traffic, increase server capacity, implement DDoS protection</td>
+      </tr>
+    </table>
+    <p style="text-align: center;">
+      <a href="#" class="button">Report an Incident</a>
+    </p>
+  </body>
+</html>
