@@ -1,6 +1,6 @@
 import openai
 
-openai.api_key = "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"
+openai.api_key = "api_key"
 
 def generate_mitigation(description):
     prompt = f"give action plan to mitigate this security incident : {description}, in 200 words."
