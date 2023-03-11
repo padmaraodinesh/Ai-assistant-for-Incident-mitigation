@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -39,7 +40,7 @@
         background-color: red;
         border: none;
         color: white;
-        padding: 10px 20px;
+	padding: 10px 20px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -80,7 +81,14 @@
     <p style="text-align: center;">
       <a href="#" class="button" id="report-incident">Report an Incident</a>
     </p>
+    <div id="result" style="display: none;">
+      <h2>Incident Description:</h2>
+      <p id="description"></p>
+      <h2>Mitigation Plan:</h2>
+      <p id="mitigation"></p>
+    </div>
     <script>
+      var maxID = 3; // Initialize the max ID to the highest ID in the table
       document.getElementById("report-incident").addEventListener("click", function() {
         var description = prompt("Please enter a description of the incident:");
         if (description != null) {
@@ -94,7 +102,22 @@
           })
           .then(response => response.json())
           .then(data => {
-            alert("Mitigation plan: " + data.mitigation);
+            // Show the result div element
+            document.getElementById("result").style.display = "block";
+            // Update the description and mitigation elements with the input and output values
+            document.getElementById("description").textContent = description;
+            document.getElementById("mitigation").textContent = data.mitigation;
+
+            // Add a new row to the table with the incident ID, description, and mitigation
+            var table = document.querySelector("table");
+            var row = table.insertRow(-1);
+            var idCell = row.insertCell(0);
+            var descriptionCell = row.insertCell(1);
+            var mitigationCell = row.insertCell(2);
+            maxID++;
+            idCell.textContent = maxID;
+            descriptionCell.textContent = description;
+            mitigationCell.textContent = data.mitigation;
           })
           .catch(error => {
             console.error("Error:", error);
