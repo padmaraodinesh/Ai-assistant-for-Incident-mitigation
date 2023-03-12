@@ -40,7 +40,7 @@
         background-color: red;
         border: none;
         color: white;
-	padding: 10px 20px;
+        padding: 10px 20px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -51,6 +51,21 @@
 
       .button:hover {
         background-color: #3e8e41;
+      }
+
+      #result {
+        margin-top: 20px;
+      }
+
+      #result h2 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+
+      #result p {
+        margin: 0;
+        text-align: left;
       }
     </style>
   </head>
@@ -103,10 +118,9 @@
           .then(response => response.json())
           .then(data => {
             // Show the result div element
-            document.getElementById("result").style.display = "block";
-            // Update the description and mitigation elements with the input and output values
+            document.getElementById("result").style.display = "block";// Update the description and mitigation elements with the input and output values
             document.getElementById("description").textContent = description;
-            document.getElementById("mitigation").textContent = data.mitigation;
+            document.getElementById("mitigation").textContent = data.mitigation.substring(11); // Update the mitigation text only
 
             // Add a new row to the table with the incident ID, description, and mitigation
             var table = document.querySelector("table");
@@ -117,7 +131,7 @@
             maxID++;
             idCell.textContent = maxID;
             descriptionCell.textContent = description;
-            mitigationCell.textContent = data.mitigation;
+            mitigationCell.textContent = data.mitigation.substring(11); // Update the mitigation text only
           })
           .catch(error => {
             console.error("Error:", error);
